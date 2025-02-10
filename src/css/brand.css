@@ -1,0 +1,62 @@
+/* brand.css - General Branding */
+
+/* Global Colors */
+:root {
+  --primary-color: #205cef; /* Dark blue */
+  --accent-color: #f39c12; /* Bright orange */
+  --background-color: #ffffff; /* White */
+  --text-color: #2c3e50; /* Dark grey */
+  --error-color: #e74c3c; /* Red for errors */
+  --warning-color: #f1c40f; /* Yellow for warnings */
+  --success-color: #27ae60; /* Green for success */
+}
+
+/* Global Fonts */
+@font-face {
+  font-family: "Nunito";
+  src:
+    url("Fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype"),
+    url("Fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Merriweather */
+@font-face {
+  font-family: "Merriweather";
+  src:
+    url("/Merriweather/Merriweather-Regular.ttf") format("truetype"),
+    url("/Merriweather/Merriweather-Bold.ttf") format("truetype"),
+    url("/Merriweather/Merriweather-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Nunito", "Open Sans", "Merriweather", sans-serif !important; /* Clean, modern fonts */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Fallbacks for Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather", "Open Sans", sans-serif; /* Classic and legible */
+}
+
+/* Fallbacks for Paragraphs */
+p,
+li,
+blockquote {
+  font-family: "Nunito", "Open Sans", sans-serif; /* Simple and easy to read */
+}
+
+a:hover {
+  text-decoration: none;
+}
