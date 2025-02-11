@@ -4,7 +4,7 @@ import Socials from "./Socials";
 
 const Footer = () => {
   return (
-    <footer className="fixed bottom-0 w-full bg-gray-800 text-white">
+    <footer className="mt-auto w-full bg-gray-800 text-white">
       <div className="mx-auto max-w-screen-xl flex flex-wrap justify-center md:justify-around items-start p-4">
         <div className="m-2 min-w-[120px] text-center md:text-left">
           <h4 className="font-semibold mb-2 text-orange-400">Main</h4>
@@ -34,9 +34,7 @@ const Footer = () => {
         </div>
 
         <div className="m-2 min-w-[120px] text-center md:text-left">
-          <h4 className="font-semibold mb-2 text-orange-400">
-            Auth
-          </h4>
+          <h4 className="font-semibold mb-2 text-orange-400">Auth</h4>
           <ul className="space-y-1">
             <li>
               <Link
@@ -81,7 +79,7 @@ const Footer = () => {
                 to="/routecast"
                 className="hover:text-orange-300 transition-colors"
               >
-                RouteCast
+                RouteCast Tool
               </Link>
             </li>
             <li>
@@ -108,10 +106,10 @@ const Footer = () => {
           <ul className="space-y-1">
             <li>
               <Link
-                to="/blog"
+                to="/contact"
                 className="hover:text-orange-300 transition-colors"
               >
-                Blog
+                Contact Us
               </Link>
             </li>
             <li>
@@ -125,10 +123,18 @@ const Footer = () => {
           <ul className="space-y-1">
             <li>
               <Link
-                to="/legal"
+                to="/privacy"
                 className="hover:text-orange-300 transition-colors"
               >
-                Privacy & Cookie Policy
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/cookies"
+                className="hover:text-orange-300 transition-colors"
+              >
+                Cookies Policy
               </Link>
             </li>
             <li>
@@ -136,7 +142,7 @@ const Footer = () => {
                 to="/terms"
                 className="hover:text-orange-300 transition-colors"
               >
-                Terms
+                Terms & Conditions
               </Link>
             </li>
           </ul>
@@ -147,10 +153,18 @@ const Footer = () => {
           <ul className="space-y-1">
             <li>
               <Link
+                to="/blog"
+                className="hover:text-orange-300 transition-colors"
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/brand"
                 className="hover:text-orange-300 transition-colors"
               >
-                Brand
+                Brand Assets
               </Link>
             </li>
             <li>
@@ -158,7 +172,7 @@ const Footer = () => {
                 to="/press"
                 className="hover:text-orange-300 transition-colors"
               >
-                Press
+                Press Kit
               </Link>
             </li>
           </ul>
@@ -197,7 +211,8 @@ const Footer = () => {
 
       <div className="bg-gray-900 text-center py-2">
         <p className="text-sm">
-          © {new Date().getFullYear()} Your Company. All rights reserved.
+          © {new Date().getFullYear()} RouteCaster. All rights reserved. Made
+          for Entrepreneurship 2 at the University of Exeter.
         </p>
       </div>
     </footer>

@@ -19,7 +19,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-4 py-3 w-full">
+    <nav className="flex items-center justify-between px-4 py-3 w-full z-50">
       {/* Left section: Logo + Product Name */}
       <div className="flex items-center">
         <Link
@@ -122,6 +122,15 @@ const Nav = () => {
             >
               <li>
                 <Link
+                  to="/contact"
+                  onClick={closeMobileMenu}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/blog"
                   onClick={closeMobileMenu}
                   className="block px-4 py-2 hover:bg-gray-100"
@@ -135,7 +144,7 @@ const Nav = () => {
                   onClick={closeMobileMenu}
                   className="block px-4 py-2 hover:bg-gray-100"
                 >
-                  Brand
+                  Brand Assets
                 </Link>
               </li>
               <li>
@@ -144,7 +153,7 @@ const Nav = () => {
                   onClick={closeMobileMenu}
                   className="block px-4 py-2 hover:bg-gray-100"
                 >
-                  Press
+                  Press Kit
                 </Link>
               </li>
             </ul>
@@ -266,6 +275,15 @@ const Nav = () => {
               >
                 <li>
                   <Link
+                    to="/contact"
+                    onClick={closeMobileMenu}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/blog"
                     onClick={closeMobileMenu}
                     className="block px-4 py-2 hover:bg-gray-100"
@@ -279,7 +297,7 @@ const Nav = () => {
                     onClick={closeMobileMenu}
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
-                    Brand
+                    Brand Assets
                   </Link>
                 </li>
                 <li>
@@ -288,7 +306,7 @@ const Nav = () => {
                     onClick={closeMobileMenu}
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
-                    Press
+                    Press Kit
                   </Link>
                 </li>
               </ul>

@@ -26,9 +26,11 @@ import Blog from "./pages/Blog/Blog";
 import About from "./pages/Home/About";
 import Home from "./pages/Home/Home";
 import Pricing from "./pages/Home/Pricing";
+import Contact from "./pages/Home/Contact";
 
 // Legal Components
-import Legal from "./pages/Legal/Legal";
+import Privacy from "./pages/Legal/Privacy";
+import Cookies from "./pages/Legal/Cookies";
 import Terms from "./pages/Legal/Terms";
 
 // Marketing Components
@@ -44,7 +46,6 @@ import Support from "./pages/Product/Support";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
-
 // Utils
 import RedirectToSubdomain from "./utils/RedirectToSubdomain";
 
@@ -52,57 +53,61 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Nav />
-      <Routes>
-        {/* App Routes */}
-        {/* 🚀 Always Redirect These Routes to the Subdomain */}
-        <Route
-          path="/dashboard"
-          element={<RedirectToSubdomain path="/dashboard" />}
-        />
-        <Route
-          path="/routecast"
-          element={<RedirectToSubdomain path="/routecast" />}
-        />
-        <Route
-          path="/settings"
-          element={<RedirectToSubdomain path="/settings" />}
-        />
-        <Route
-          path="/upgrade"
-          element={<RedirectToSubdomain path="/upgrade" />}
-        />
+      <div className="flex-1">
+        <Routes>
+          {/* App Routes */}
+          {/* 🚀 Always Redirect These Routes to the Subdomain */}
+          <Route
+            path="/dashboard"
+            element={<RedirectToSubdomain path="/dashboard" />}
+          />
+          <Route
+            path="/routecast"
+            element={<RedirectToSubdomain path="/routecast" />}
+          />
+          <Route
+            path="/settings"
+            element={<RedirectToSubdomain path="/settings" />}
+          />
+          <Route
+            path="/upgrade"
+            element={<RedirectToSubdomain path="/upgrade" />}
+          />
 
-        {/* Auth Routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/reset" element={<Reset />} />
-        <Route path="/signup" element={<Signup />} />
+          {/* Auth Routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/reset" element={<Reset />} />
+          <Route path="/signup" element={<Signup />} />
 
-        {/* Blog Route */}
-        <Route path="/blog" element={<Blog />} />
+          {/* Blog Route */}
+          <Route path="/blog" element={<Blog />} />
 
-        {/* Home Routes */}
-        <Route path="/about" element={<About />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/pricing" element={<Pricing />} />
+          {/* Home Routes */}
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/contact" element={<Contact />} />
 
-        {/* Legal Routes */}
-        <Route path="/legal" element={<Legal />} />
-        <Route path="/terms" element={<Terms />} />
+          {/* Legal Routes */}
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/terms" element={<Terms />} />
 
-        {/* Marketing Routes */}
-        <Route path="/brand" element={<Brand />} />
-        <Route path="/press" element={<Press />} />
+          {/* Marketing Routes */}
+          <Route path="/brand" element={<Brand />} />
+          <Route path="/press" element={<Press />} />
 
-        {/* Product Routes */}
-        <Route path="/features" element={<Features />} />
-        <Route path="/roadmap" element={<Roadmap />} />
-        <Route path="/support" element={<Support />} />
-      </Routes>
+          {/* Product Routes */}
+          <Route path="/features" element={<Features />} />
+          <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/support" element={<Support />} />
+        </Routes>
+      </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -1,0 +1,60 @@
+/* base.css - A minimal design base for all pages */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+/* 1. A flexible container for centred layouts */
+.container {
+    max-width: 1200px; /* Adjust as needed */
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* 2. Titles and subheadings */
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* 3. Body text - keeps it simple, deferring font-family & colour to brand.css */
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  /* 4. Call-to-Action (CTA) button style */
+  .btn-cta {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--accent-color);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-cta:hover,
+  .btn-cta:focus {
+    background-color: #d97f08; /* Slightly darker version of accent or override in brand.css */
+    outline: none; 
+  }
+  
+  .btn-cta:active {
+    background-color: #c96f06;
+  }
+  
