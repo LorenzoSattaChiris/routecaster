@@ -113,6 +113,14 @@ const Footer = () => {
               </Link>
             </li>
             <li>
+              <Link
+                to="/careers"
+                className="hover:text-orange-300 transition-colors"
+              >
+                Careers
+              </Link>
+            </li>
+            <li>
               <Socials />
             </li>
           </ul>
@@ -151,6 +159,14 @@ const Footer = () => {
         <div className="m-2 min-w-[120px] text-center md:text-left">
           <h4 className="font-semibold mb-2 text-orange-400">Resources</h4>
           <ul className="space-y-1">
+          <li>
+              <Link
+                to="/docs"
+                className="hover:text-orange-300 transition-colors"
+              >
+                Docs
+              </Link>
+            </li>
             <li>
               <Link
                 to="/blog"
@@ -195,6 +211,30 @@ const Footer = () => {
                 className="hover:text-orange-300 transition-colors"
               >
                 Roadmap
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/casestudies"
+                className="hover:text-orange-300 transition-colors"
+              >
+                Case Studies
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/referral"
+                className="hover:text-orange-300 transition-colors"
+              >
+                Referral
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/affiliate"
+                className="hover:text-orange-300 transition-colors"
+              >
+                Affiliate
               </Link>
             </li>
             <li>

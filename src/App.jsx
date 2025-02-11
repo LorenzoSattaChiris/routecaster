@@ -22,6 +22,9 @@ import Signup from "./pages/Auth/Signup";
 // Blog Component
 import Blog from "./pages/Blog/Blog";
 
+// Docs Components
+import Docs from "./pages/Docs/Docs";
+
 // Home Components
 import About from "./pages/Home/About";
 import Home from "./pages/Home/Home";
@@ -36,8 +39,13 @@ import Terms from "./pages/Legal/Terms";
 // Marketing Components
 import Brand from "./pages/Marketing/Brand";
 import Press from "./pages/Marketing/Press";
+import Affiliate from "./pages/Marketing/Affiliate";
+import Careers from "./pages/Marketing/Careers";
+import CaseStudies from "./pages/Marketing/CaseStudies";
+import Referral from "./pages/Marketing/Referral";
 
 // Product Components
+import Demo from "./pages/Product/Demo";
 import Features from "./pages/Product/Features";
 import Roadmap from "./pages/Product/Roadmap";
 import Support from "./pages/Product/Support";
@@ -84,6 +92,9 @@ function App() {
           {/* Blog Route */}
           <Route path="/blog" element={<Blog />} />
 
+          {/* Docs Route */}
+          <Route path="/docs" element={<Docs />} />
+
           {/* Home Routes */}
           <Route path="/about" element={<About />} />
           <Route path="/" element={<Home />} />
@@ -98,8 +109,13 @@ function App() {
           {/* Marketing Routes */}
           <Route path="/brand" element={<Brand />} />
           <Route path="/press" element={<Press />} />
+          <Route path="/affiliate" element={<Affiliate />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/casestudies" element={<CaseStudies />} />
+          <Route path="/referral" element={<Referral />} />
 
           {/* Product Routes */}
+          <Route path="/demo" element={<Demo />} />
           <Route path="/features" element={<Features />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/support" element={<Support />} />

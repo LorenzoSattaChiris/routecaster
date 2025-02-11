@@ -19,8 +19,8 @@ const Nav = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-4 py-3 w-full z-50">
-      {/* Left section: Logo + Product Name */}
+<nav className="fixed top-0 left-0 w-full z-50 md:static md:z-auto flex items-center justify-between px-4 py-3">
+{/* Left section: Logo + Product Name */}
       <div className="flex items-center">
         <Link
           to="/"
@@ -89,6 +89,15 @@ const Nav = () => {
                   Roadmap
                 </Link>
               </li>
+              <li>
+                  <Link
+                    to="/docs"
+                    onClick={closeMobileMenu}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Docs
+                  </Link>
+                </li>
               <li>
                 <Link
                   to="/support"
@@ -244,6 +253,15 @@ const Nav = () => {
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     Roadmap
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/docs"
+                    onClick={closeMobileMenu}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Docs
                   </Link>
                 </li>
                 <li>

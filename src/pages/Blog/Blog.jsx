@@ -1,17 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { FiFileText } from "react-icons/fi";
+
+// ArticleCard component with a minor load animation
+const ArticleCard = ({ article, onClick }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger the load animation after the component mounts
+    setLoaded(true);
+  }, []);
+
+  return (
+    <div
+      onClick={onClick}
+      className={`bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 transform cursor-pointer ${
+        loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+      }`}
+    >
+      <div className="h-48 w-full bg-gray-700 flex items-center justify-center">
+        {article.image ? (
+          <img
+            src={article.image}
+            alt={article.title}
+            className="object-cover w-full h-full"
+          />
+        ) : (
+          <FiFileText className="text-indigo-500 text-6xl" />
+        )}
+      </div>
+      <div className="p-6">
+        <h2 className="text-2xl font-bold mb-2">{article.title}</h2>
+        <p className="text-gray-300 mb-4">{article.description}</p>
+        <p className="text-indigo-500 font-bold">Read More &rarr;</p>
+      </div>
+    </div>
+  );
+};
 
 const Blog = () => {
   const [articles, setArticles] = useState([]);
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     // Fetch the articles JSON from the public/data folder
-    fetch("/src/data/articles.json")
-        .then((res) => res.json())
-        .then((data) => setArticles(data))
-        .catch((err) => console.error("Error loading articles:", err));
+    fetch("/data/articles.json")
+      .then((res) => res.json())
+      .then((data) => setArticles(data))
+      .catch((err) => console.error("Error loading articles:", err));
   }, []);
+
+  // Handler for search text input
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Filter articles based solely on the search query (title and description)
+  const filteredArticles = useMemo(() => {
+    return articles.filter((article) => {
+      const text = (article.title + " " + article.description).toLowerCase();
+      return text.includes(searchQuery.toLowerCase());
+    });
+  }, [articles, searchQuery]);
 
   const closeModal = () => {
     setSelectedArticle(null);
@@ -28,31 +78,25 @@ const Blog = () => {
           </p>
         </header>
 
+        {/* Search Section */}
+        <section className="mb-8 flex items-center justify-center">
+          <input
+            type="text"
+            placeholder="Search by title or description..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            className="w-full md:w-1/2 px-4 py-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-indigo-500 transition duration-300"
+          />
+        </section>
+
         {/* Articles List */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {articles.map((article) => (
-            <div
+          {filteredArticles.map((article) => (
+            <ArticleCard
               key={article.id}
-              className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
+              article={article}
               onClick={() => setSelectedArticle(article)}
-            >
-              <div className="h-48 w-full bg-gray-700 flex items-center justify-center">
-                {article.image ? (
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="object-cover w-full h-full"
-                  />
-                ) : (
-                  <FiFileText className="text-indigo-500 text-6xl" />
-                )}
-              </div>
-              <div className="p-6">
-                <h2 className="text-2xl font-bold mb-2">{article.title}</h2>
-                <p className="text-gray-300 mb-4">{article.description}</p>
-                <p className="text-indigo-500 font-bold">Read More &rarr;</p>
-              </div>
-            </div>
+            />
           ))}
         </div>
 
@@ -85,7 +129,9 @@ const Blog = () => {
                 className="w-full h-64 object-cover rounded mb-4"
               />
             )}
-            <p className="text-gray-300 whitespace-pre-wrap">{selectedArticle.content}</p>
+            <p className="text-gray-300 whitespace-pre-wrap">
+              {selectedArticle.content}
+            </p>
           </div>
         </div>
       )}

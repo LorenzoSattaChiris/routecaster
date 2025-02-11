@@ -213,8 +213,8 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Benefit Minigame Section */}
-        <section className="mb-16">
+        {/* Benefit Minigame Section - HIDDEN ON MOBILE */}
+        <section className="mb-16 hidden md:block">
           <h2 className="text-4xl font-bold text-center mb-8">Discover Our Benefits</h2>
           <p className="text-center text-gray-300 mb-4">
             Use your arrow keys to navigate your boat over our benefits markers!
