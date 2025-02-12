@@ -1,6 +1,27 @@
+import { Helmet } from "react-helmet";
+
 const Privacy = () => {
   return (
     <>
+      <Helmet>
+        <title>RouteCaster | Privacy Policy</title>
+        <meta
+          name="description"
+          content="Review RouteCaster's privacy practices and learn how we protect your personal data."
+        />
+        <meta property="og:title" content="RouteCaster | Privacy Policy" />
+        <meta
+          property="og:description"
+          content="Review RouteCaster's privacy practices and learn how we protect your personal data."
+        />
+        <meta property="og:url" content="https://www.routecaster.com/privacy" />
+        <link rel="canonical" href="https://www.routecaster.com/privacy" />
+        <meta name="twitter:title" content="RouteCaster | Privacy Policy" />
+        <meta
+          name="twitter:description"
+          content="Review RouteCaster's privacy practices and learn how we protect your personal data."
+        />
+      </Helmet>
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">
           Privacy Policy
@@ -9,38 +30,36 @@ const Privacy = () => {
         <p className="text-gray-700 mb-4">Last updated February 10, 2025</p>
         <hr className="my-4 border-gray-300" />
 
-
         <h2 className="text-2xl font-semibold text-gray-800 mt-6 mb-2">
-            Disclaimer
-          </h2>
-          <p className="text-gray-700 mb-4">
-            RouteCaster is part of a university project developed at the
-            University of Exeter. This platform, its services, and all related
-            content are created solely for educational and academic purposes. The
-            website, including all its features, functionalities, and information,
-            should not be considered as a commercial service or a real business
-            offering.
-          </p>
-          <p className="text-gray-700 mb-4">
-            All content, including but not limited to the terms and conditions,
-            privacy policies, and service descriptions, are simulated for academic
-            learning and demonstration purposes only. Users should be aware that
-            this is not a real commercial service, and no actual business
-            transactions or services are being provided.
-          </p>
-          <p className="text-gray-700 mb-4">
-            For any questions or clarifications about this educational project,
-            please contact the project team at{" "}
-            <a
-              href="mailto:contact@routecaster.com"
-              className="text-blue-500 hover:underline"
-            >
-              contact@routecaster.com
-            </a>
-          </p>
-  
-          <hr />
-  
+          Disclaimer
+        </h2>
+        <p className="text-gray-700 mb-4">
+          RouteCaster is part of a university project developed at the
+          University of Exeter. This platform, its services, and all related
+          content are created solely for educational and academic purposes. The
+          website, including all its features, functionalities, and information,
+          should not be considered as a commercial service or a real business
+          offering.
+        </p>
+        <p className="text-gray-700 mb-4">
+          All content, including but not limited to the terms and conditions,
+          privacy policies, and service descriptions, are simulated for academic
+          learning and demonstration purposes only. Users should be aware that
+          this is not a real commercial service, and no actual business
+          transactions or services are being provided.
+        </p>
+        <p className="text-gray-700 mb-4">
+          For any questions or clarifications about this educational project,
+          please contact the project team at{" "}
+          <a
+            href="mailto:contact@routecaster.com"
+            className="text-blue-500 hover:underline"
+          >
+            contact@routecaster.com
+          </a>
+        </p>
+
+        <hr />
 
         {/* Introductory Paragraph */}
         <p className="text-gray-700 mb-4">
@@ -838,7 +857,9 @@ const Privacy = () => {
           .
         </p>
 
-        <p><i>Created with Termly</i></p>
+        <p>
+          <i>Created with Termly</i>
+        </p>
       </div>
     </>
   );

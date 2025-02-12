@@ -19,8 +19,7 @@ const Nav = () => {
   };
 
   return (
-<nav className="fixed top-0 left-0 w-full z-50 md:static md:z-auto flex items-center justify-between px-4 py-3">
-{/* Left section: Logo + Product Name */}
+    <nav className="fixed top-0 left-0 w-full z-50 md:static md:z-auto flex items-center justify-between px-4 py-3">
       <div className="flex items-center">
         <Link
           to="/"
@@ -28,7 +27,9 @@ const Nav = () => {
           className="flex items-center h-10 w-auto"
         >
           <img src={logo} alt="Logo" className="h-8 w-auto" />
-          <span className="ml-2 text-xl font-bold text-black">RouteCaster</span>
+          <span className="hidden md:inline ml-2 text-xl font-bold text-black">
+            RouteCaster
+          </span>
         </Link>
       </div>
 
@@ -90,14 +91,14 @@ const Nav = () => {
                 </Link>
               </li>
               <li>
-                  <Link
-                    to="/docs"
-                    onClick={closeMobileMenu}
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Docs
-                  </Link>
-                </li>
+                <Link
+                  to="/docs"
+                  onClick={closeMobileMenu}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Docs
+                </Link>
+              </li>
               <li>
                 <Link
                   to="/support"
@@ -188,7 +189,8 @@ const Nav = () => {
 
         {/* Mobile Toggle Button */}
         <button
-          className="md:hidden text-2xl text-black"
+          className="md:hidden text-2xl text-white"
+          style={{ textShadow: "0 0 8px rgba(255,255,255,0.6)" }}
           onClick={toggleMobileMenu}
         >
           {isMobileOpen ? <FaTimes /> : <FaBars />}

@@ -1,13 +1,30 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { Helmet } from "react-helmet";
 import { FiFileText } from "react-icons/fi";
 
 // --- QuotesCarousel Component with Fade Animation ---
 const QuotesCarousel = () => {
   const quotes = [
-    { id: 1, text: "RouteCaster has transformed our shipping operations, delivering real-time optimizations that save us time and money.", author: "Alex, Logistics Manager" },
-    { id: 2, text: "The cost savings and efficiency improvements we’ve seen are truly groundbreaking. RouteCaster is a game changer.", author: "Jamie, Fleet Director" },
-    { id: 3, text: "With RouteCaster, our operations have never been smoother. It’s the future of maritime logistics.", author: "Morgan, Operations Lead" },
-    { id: 4, text: "Efficiency, sustainability, and cost reduction - RouteCaster delivers on every promise.", author: "Taylor, CEO" }
+    {
+      id: 1,
+      text: "RouteCaster has transformed our shipping operations, delivering real-time optimizations that save us time and money.",
+      author: "Alex, Logistics Manager",
+    },
+    {
+      id: 2,
+      text: "The cost savings and efficiency improvements we’ve seen are truly groundbreaking. RouteCaster is a game changer.",
+      author: "Jamie, Fleet Director",
+    },
+    {
+      id: 3,
+      text: "With RouteCaster, our operations have never been smoother. It’s the future of maritime logistics.",
+      author: "Morgan, Operations Lead",
+    },
+    {
+      id: 4,
+      text: "Efficiency, sustainability, and cost reduction - RouteCaster delivers on every promise.",
+      author: "Taylor, CEO",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,27 +38,53 @@ const QuotesCarousel = () => {
   };
 
   return (
-    <div className="relative">
-      {/* The key property forces re-mount to trigger the animation */}
-      <div key={currentIndex} className="bg-gray-800 p-6 rounded-lg shadow-lg transition-opacity duration-500 ease-in-out animate-fadeIn mx-auto max-w-md">
-        <p className="italic text-gray-300">{quotes[currentIndex].text}</p>
-        <p className="mt-4 font-bold text-center">- {quotes[currentIndex].author}</p>
-      </div>
-      <div className="flex justify-center mt-4 space-x-4">
-        <button
-          onClick={handlePrev}
-          className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300 cursor-pointer"
+    <>
+      <Helmet>
+        <title>RouteCaster | Home</title>
+        <meta
+          name="description"
+          content="Welcome to RouteCaster, revolutionising maritime logistics with AI-powered route optimisation."
+        />
+        <meta property="og:title" content="RouteCaster | Home" />
+        <meta
+          property="og:description"
+          content="Welcome to RouteCaster, revolutionising maritime logistics with AI-powered route optimisation."
+        />
+        <meta property="og:url" content="https://www.routecaster.com/" />
+        <link rel="canonical" href="https://www.routecaster.com/" />
+        <meta name="twitter:title" content="RouteCaster | Home" />
+        <meta
+          name="twitter:description"
+          content="Welcome to RouteCaster, revolutionising maritime logistics with AI-powered route optimisation."
+        />
+      </Helmet>
+      <div className="relative">
+        {/* The key property forces re-mount to trigger the animation */}
+        <div
+          key={currentIndex}
+          className="bg-gray-800 p-6 rounded-lg shadow-lg transition-opacity duration-500 ease-in-out animate-fadeIn mx-auto max-w-md"
         >
-          &larr;
-        </button>
-        <button
-          onClick={handleNext}
-          className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300 cursor-pointer"
-        >
-          &rarr;
-        </button>
+          <p className="italic text-gray-300">{quotes[currentIndex].text}</p>
+          <p className="mt-4 font-bold text-center">
+            - {quotes[currentIndex].author}
+          </p>
+        </div>
+        <div className="flex justify-center mt-4 space-x-4">
+          <button
+            onClick={handlePrev}
+            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300 cursor-pointer"
+          >
+            &larr;
+          </button>
+          <button
+            onClick={handleNext}
+            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300 cursor-pointer"
+          >
+            &rarr;
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -54,11 +97,32 @@ const BenefitMinigame = () => {
   const [waveOffset, setWaveOffset] = useState({ x: 0, y: 0 });
 
   // Memoize hotspots so the dependency does not change on every render
-  const hotspots = useMemo(() => [
-    { id: 1, label: "Reduced Costs", tooltip: "Save up to 25% on fuel and operational expenses.", x: 100, y: 50 },
-    { id: 2, label: "Real-Time Data", tooltip: "Live updates that help you adapt instantly.", x: 400, y: 100 },
-    { id: 3, label: "Sustainability", tooltip: "Eco-friendly routing that lowers your carbon footprint.", x: 250, y: 300 }
-  ], []);
+  const hotspots = useMemo(
+    () => [
+      {
+        id: 1,
+        label: "Reduced Costs",
+        tooltip: "Save up to 25% on fuel and operational expenses.",
+        x: 100,
+        y: 50,
+      },
+      {
+        id: 2,
+        label: "Real-Time Data",
+        tooltip: "Live updates that help you adapt instantly.",
+        x: 400,
+        y: 100,
+      },
+      {
+        id: 3,
+        label: "Sustainability",
+        tooltip: "Eco-friendly routing that lowers your carbon footprint.",
+        x: 250,
+        y: 300,
+      },
+    ],
+    []
+  );
 
   const handleKeyDown = (e) => {
     if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
@@ -98,7 +162,10 @@ const BenefitMinigame = () => {
   }, []);
 
   return (
-    <div className="relative bg-blue-200 rounded-lg shadow-lg mx-auto" style={{ width: containerWidth, height: containerHeight }}>
+    <div
+      className="relative bg-blue-200 rounded-lg shadow-lg mx-auto"
+      style={{ width: containerWidth, height: containerHeight }}
+    >
       {hotspots.map((spot) => (
         <div
           key={spot.id}
@@ -109,7 +176,7 @@ const BenefitMinigame = () => {
             left: spot.x,
             top: spot.y,
             backgroundColor: "rgba(255,255,255,0.3)",
-            backdropFilter: "blur(4px)"
+            backdropFilter: "blur(4px)",
           }}
         ></div>
       ))}
@@ -120,17 +187,24 @@ const BenefitMinigame = () => {
           height: 40,
           left: boatPos.x + waveOffset.x,
           top: boatPos.y + waveOffset.y,
-          transition: "all 0.2s ease-out"
+          transition: "all 0.2s ease-out",
         }}
       >
-        <span role="img" aria-label="boat" className="text-3xl">⛵</span>
+        <span role="img" aria-label="boat" className="text-3xl">
+          ⛵
+        </span>
       </div>
       {tooltip && (
-        <div className="absolute bg-gray-800 text-white text-sm p-2 rounded shadow-lg" style={{ left: boatPos.x + 50, top: boatPos.y }}>
+        <div
+          className="absolute bg-gray-800 text-white text-sm p-2 rounded shadow-lg"
+          style={{ left: boatPos.x + 50, top: boatPos.y }}
+        >
           {tooltip}
         </div>
       )}
-      <p className="absolute bottom-2 left-2 text-gray-700 text-xs">Use arrow keys to navigate your boat</p>
+      <p className="absolute bottom-2 left-2 text-gray-700 text-xs">
+        Use arrow keys to navigate your boat
+      </p>
     </div>
   );
 };
@@ -145,7 +219,8 @@ const Home = () => {
             Welcome to RouteCaster
           </h1>
           <p className="text-xl md:text-2xl text-indigo-300 mt-2 animate-fadeInUp">
-            Revolutionizing Maritime Logistics with AI-Powered Route Optimization
+            Revolutionizing Maritime Logistics with AI-Powered Route
+            Optimization
           </p>
           <a
             href="/signup"
@@ -157,7 +232,9 @@ const Home = () => {
 
         {/* Big Impressive Numbers Section */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-center mb-8">Our Impact in Numbers</h2>
+          <h2 className="text-4xl font-bold text-center mb-8">
+            Our Impact in Numbers
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-1 hover:scale-105">
               <p className="text-5xl font-extrabold text-indigo-500">10,000+</p>
@@ -176,12 +253,17 @@ const Home = () => {
 
         {/* Innovative Benefits Section */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-center mb-8">Why Choose RouteCaster?</h2>
+          <h2 className="text-4xl font-bold text-center mb-8">
+            Why Choose RouteCaster?
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-1 hover:scale-105">
-              <h3 className="text-2xl font-bold mb-2">Real-Time Optimization</h3>
+              <h3 className="text-2xl font-bold mb-2">
+                Real-Time Optimization
+              </h3>
               <p className="mb-4 text-gray-300">
-                Our AI continuously adapts routes based on live data, ensuring maximum efficiency and cost savings.
+                Our AI continuously adapts routes based on live data, ensuring
+                maximum efficiency and cost savings.
               </p>
               <a
                 href="/features"
@@ -193,7 +275,8 @@ const Home = () => {
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-1 hover:scale-105">
               <h3 className="text-2xl font-bold mb-2">Sustainable Solutions</h3>
               <p className="mb-4 text-gray-300">
-                Reduce your carbon footprint with eco-friendly routing that adapts to environmental conditions.
+                Reduce your carbon footprint with eco-friendly routing that
+                adapts to environmental conditions.
               </p>
               <a
                 href="/features"
@@ -207,7 +290,9 @@ const Home = () => {
 
         {/* Interactive Quotes Section (Carousel) */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-center mb-8">What Our Clients Say</h2>
+          <h2 className="text-4xl font-bold text-center mb-8">
+            What Our Clients Say
+          </h2>
           <div className="max-w-md mx-auto">
             <QuotesCarousel />
           </div>
@@ -215,7 +300,9 @@ const Home = () => {
 
         {/* Benefit Minigame Section - HIDDEN ON MOBILE */}
         <section className="mb-16 hidden md:block">
-          <h2 className="text-4xl font-bold text-center mb-8">Discover Our Benefits</h2>
+          <h2 className="text-4xl font-bold text-center mb-8">
+            Discover Our Benefits
+          </h2>
           <p className="text-center text-gray-300 mb-4">
             Use your arrow keys to navigate your boat over our benefits markers!
           </p>
@@ -226,13 +313,18 @@ const Home = () => {
         <section className="mb-16 text-center">
           <h2 className="text-4xl font-bold mb-4">Our Technology at Work</h2>
           <p className="text-lg text-gray-300">
-            Our state-of-the-art platform integrates cutting-edge AI, real-time data, and robust analytics to deliver unparalleled routing performance. Experience a new era of shipping efficiency that empowers your business to achieve more.
+            Our state-of-the-art platform integrates cutting-edge AI, real-time
+            data, and robust analytics to deliver unparalleled routing
+            performance. Experience a new era of shipping efficiency that
+            empowers your business to achieve more.
           </p>
         </section>
 
         {/* Final CTA Section */}
         <section className="text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Operations?</h2>
+          <h2 className="text-4xl font-bold mb-4">
+            Ready to Transform Your Operations?
+          </h2>
           <a
             href="/contact"
             className="inline-block bg-indigo-500 hover:bg-indigo-700 cursor-pointer text-white font-bold py-4 px-10 rounded-full transition duration-300 text-2xl"

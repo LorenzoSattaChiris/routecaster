@@ -16,6 +16,35 @@
         "destination": "/index.html"
       }
     ],
+    "headers": [
+      {
+        "source": "/Nunito/Nunito-VariableFont_wght.ttf",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=7776000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/assets/index-oQFRXEP0.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=10800, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/assets/index-BuhzaTdL.css",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=10800, immutable"
+          }
+        ]
+      }
+    ],
     "predeploy": ["npm run build"]
   }
 }

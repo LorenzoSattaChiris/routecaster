@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 
 // Updated FAQ item component with smoother animations and enhanced design
 const FAQItem = ({ question, answer }) => {
@@ -103,35 +104,60 @@ const faqs = [
 
 const Support = () => {
   return (
-    <div className="bg-gray-900 min-h-screen text-gray-200">
-      <div className="container mx-auto px-4 py-12">
-        {/* Header Section */}
-        <section className="text-center mb-12">
-          <h1 className="text-4xl font-bold">Support &amp; FAQ</h1>
-          <p className="text-xl text-indigo-300 mt-2">
-            We're here to help. Find answers to your questions below.
-          </p>
-        </section>
+    <>
+      <Helmet>
+        <title>RouteCaster | Support</title>
+        <meta
+          name="description"
+          content="Find help, FAQs, and troubleshooting guides to get the most out of RouteCaster."
+        />
+        <meta property="og:title" content="RouteCaster | Support" />
+        <meta
+          property="og:description"
+          content="Find help, FAQs, and troubleshooting guides to get the most out of RouteCaster."
+        />
+        <meta property="og:url" content="https://www.routecaster.com/support" />
+        <link rel="canonical" href="https://www.routecaster.com/support" />
+        <meta name="twitter:title" content="RouteCaster | Support" />
+        <meta
+          name="twitter:description"
+          content="Find help, FAQs, and troubleshooting guides to get the most out of RouteCaster."
+        />
+      </Helmet>
+      <div className="bg-gray-900 min-h-screen text-gray-200">
+        <div className="container mx-auto px-4 py-12">
+          {/* Header Section */}
+          <section className="text-center mb-12">
+            <h1 className="text-4xl font-bold">Support &amp; FAQ</h1>
+            <p className="text-xl text-indigo-300 mt-2">
+              We're here to help. Find answers to your questions below.
+            </p>
+          </section>
 
-        {/* FAQ Section */}
-        <section className="mb-12">
-          {faqs.map((faq, index) => (
-            <FAQItem key={index} question={faq.question} answer={faq.answer} />
-          ))}
-        </section>
+          {/* FAQ Section */}
+          <section className="mb-12">
+            {faqs.map((faq, index) => (
+              <FAQItem
+                key={index}
+                question={faq.question}
+                answer={faq.answer}
+              />
+            ))}
+          </section>
 
-        {/* Clear CTA Section */}
-        <section className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Need More Help?</h2>
-          <a
-            href="/contact"
-            className="inline-block bg-indigo-500 hover:bg-indigo-700 cursor-pointer text-white font-bold py-3 px-8 rounded transition duration-300 text-xl"
-          >
-            Contact Support
-          </a>
-        </section>
+          {/* Clear CTA Section */}
+          <section className="text-center">
+            <h2 className="text-3xl font-bold mb-4">Need More Help?</h2>
+            <a
+              href="/contact"
+              className="inline-block bg-indigo-500 hover:bg-indigo-700 cursor-pointer text-white font-bold py-3 px-8 rounded transition duration-300 text-xl"
+            >
+              Contact Support
+            </a>
+          </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

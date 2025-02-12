@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 // A helper component for a copyable section
 const CopySection = ({ title, content }) => {
@@ -8,16 +9,38 @@ const CopySection = ({ title, content }) => {
   };
 
   return (
-    <div className="mb-8 p-4 border border-gray-700 rounded bg-gray-800 transition transform hover:scale-105 duration-300">
-      <h3 className="text-2xl font-bold mb-2">{title}</h3>
-      <pre className="whitespace-pre-wrap text-gray-300 mb-2">{content}</pre>
-      <button
-        onClick={handleCopy}
-        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300 cursor-pointer"
-      >
-        Copy
-      </button>
-    </div>
+    <>
+      <Helmet>
+        <title>RouteCaster | Press Kit</title>
+        <meta
+          name="description"
+          content="Download the latest RouteCaster press kit and media resources."
+        />
+        <meta property="og:title" content="RouteCaster | Press Kit" />
+        <meta
+          property="og:description"
+          content="Download the latest RouteCaster press kit and media resources."
+        />
+        <meta property="og:url" content="https://www.routecaster.com/press" />
+        <link rel="canonical" href="https://www.routecaster.com/press" />
+        <meta name="twitter:title" content="RouteCaster | Press Kit" />
+        <meta
+          name="twitter:description"
+          content="Download the latest RouteCaster press kit and media resources."
+        />
+      </Helmet>
+
+      <div className="mb-8 p-4 border border-gray-700 rounded bg-gray-800 transition transform hover:scale-105 duration-300">
+        <h3 className="text-2xl font-bold mb-2">{title}</h3>
+        <pre className="whitespace-pre-wrap text-gray-300 mb-2">{content}</pre>
+        <button
+          onClick={handleCopy}
+          className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300 cursor-pointer"
+        >
+          Copy
+        </button>
+      </div>
+    </>
   );
 };
 

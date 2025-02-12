@@ -1,5 +1,6 @@
 //
 import { useState } from "react";
+import { lazy } from "react";
 import reactLogo from "./assets/logo.svg";
 import logo from "/logo.svg";
 import { Routes, Route } from "react-router-dom";
@@ -8,22 +9,13 @@ import { Routes, Route } from "react-router-dom";
 import "./css/brand.css";
 import "./css/App.css";
 //  Pages
-// App Components
-import Dashboard from "./pages/App/Dashboard";
-import RouteCast from "./pages/App/RouteCast";
-import Settings from "./pages/App/Settings";
-import Upgrade from "./pages/App/Upgrade";
-
 // Auth Components
 import Login from "./pages/Auth/Login";
 import Reset from "./pages/Auth/Reset";
 import Signup from "./pages/Auth/Signup";
 
-// Blog Component
-import Blog from "./pages/Blog/Blog";
-
-// Docs Components
-import Docs from "./pages/Docs/Docs";
+const Blog = lazy(() => import("./pages/Blog/Blog"));
+const Docs = lazy(() => import("./pages/Docs/Docs"));
 
 // Home Components
 import About from "./pages/Home/About";
@@ -32,9 +24,9 @@ import Pricing from "./pages/Home/Pricing";
 import Contact from "./pages/Home/Contact";
 
 // Legal Components
-import Privacy from "./pages/Legal/Privacy";
-import Cookies from "./pages/Legal/Cookies";
-import Terms from "./pages/Legal/Terms";
+const Privacy = lazy(() => import("./pages/Legal/Privacy"));
+const Cookies = lazy(() => import("./pages/Legal/Cookies"));
+const Terms = lazy(() => import("./pages/Legal/Terms"));
 
 // Marketing Components
 import Brand from "./pages/Marketing/Brand";

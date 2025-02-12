@@ -18,6 +18,7 @@
     url("/Fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype"),
     url("/Fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf") format("truetype");
   font-weight: 400;
+  font-display: swap;
   font-style: normal;
 }
 
@@ -27,6 +28,7 @@
     url("/Fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype"),
     url("/Fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
   font-weight: 400;
+  font-display: swap;
   font-style: normal;
 }
 
