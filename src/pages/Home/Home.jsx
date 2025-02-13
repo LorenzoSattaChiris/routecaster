@@ -269,7 +269,7 @@ const Home = () => {
                 href="/features"
                 className="inline-block bg-indigo-500 hover:bg-indigo-700 transition duration-300 text-white font-bold py-2 px-4 rounded cursor-pointer"
               >
-                Learn More
+                Learn More (Features)
               </a>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg transition transform hover:-translate-y-1 hover:scale-105">

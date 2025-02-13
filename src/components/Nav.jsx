@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import logo from "../assets/logo.svg";
+import logow from "../assets/logow.svg";
+
 
 const Nav = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
   const [connectOpen, setConnectOpen] = useState(false);
 
+  // Toggle the mobile menu open/closed
   const toggleMobileMenu = () => {
     setIsMobileOpen(!isMobileOpen);
   };
 
+  // Close the mobile menu and any open dropdowns
   const closeMobileMenu = () => {
     setIsMobileOpen(false);
     setProductOpen(false);
@@ -19,26 +23,38 @@ const Nav = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 md:static md:z-auto flex items-center justify-between px-4 py-3">
+    <nav className="fixed top-0 left-0 w-full z-[5000] md:static md:z-auto flex items-center justify-between px-4 py-3">
+      <h2 className="sr-only">Main Navigation</h2>
+
       <div className="flex items-center">
         <Link
           to="/"
           onClick={closeMobileMenu}
           className="flex items-center h-10 w-auto"
         >
-          <img src={logo} alt="Logo" className="h-8 w-auto" />
+          <img
+            src={logow}
+            alt="Mobile Logo"
+            className="block md:hidden h-8 w-auto"
+          />
+          <img
+            src={logo}
+            alt="Desktop Logo"
+            className="hidden md:block h-8 w-auto"
+          />
           <span className="hidden md:inline ml-2 text-xl font-bold text-black">
             RouteCaster
           </span>
         </Link>
       </div>
 
-      {/* Right section: Desktop Links */}
+      {/* Desktop Navigation Links */}
       <div className="relative">
         <ul className="hidden md:flex items-center space-x-6">
           <li>
             <Link
               to="/about"
+              onClick={closeMobileMenu}
               className="text-black hover:text-orange-500 transition-colors"
             >
               About
@@ -47,6 +63,7 @@ const Nav = () => {
           <li>
             <Link
               to="/pricing"
+              onClick={closeMobileMenu}
               className="text-black hover:text-orange-500 transition-colors"
             >
               Pricing
@@ -54,7 +71,7 @@ const Nav = () => {
           </li>
 
           {/* Product dropdown */}
-          <div
+          <li
             className="relative cursor-pointer"
             onMouseEnter={() => setProductOpen(true)}
             onMouseLeave={() => setProductOpen(false)}
@@ -109,10 +126,10 @@ const Nav = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </li>
 
-          {/* Connect dropdown */}
-          <div
+          {/* Connect dropdown (converted to an <li> for proper list structure) */}
+          <li
             className="relative cursor-pointer"
             onMouseEnter={() => setConnectOpen(true)}
             onMouseLeave={() => setConnectOpen(false)}
@@ -167,11 +184,12 @@ const Nav = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </li>
 
           <li>
             <Link
               to="/login"
+              onClick={closeMobileMenu}
               className="text-black hover:text-orange-500 transition-colors"
             >
               Login
@@ -180,7 +198,8 @@ const Nav = () => {
           <li>
             <Link
               to="/signup"
-              className="bg-orange-500 text-white px-4 py-2 rounded-md transition-all hover:bg-orange-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+              onClick={closeMobileMenu}
+              className="bg-orange-700 text-white px-4 py-2 rounded-md transition-all hover:bg-orange-800 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"
             >
               Sign Up
             </Link>
@@ -192,13 +211,14 @@ const Nav = () => {
           className="md:hidden text-2xl text-white"
           style={{ textShadow: "0 0 8px rgba(255,255,255,0.6)" }}
           onClick={toggleMobileMenu}
+          aria-label={isMobileOpen ? "Close Menu" : "Open Menu"}
         >
           {isMobileOpen ? <FaTimes /> : <FaBars />}
         </button>
 
         {/* Mobile Menu with smooth fade/slide */}
         <div
-          className={`absolute right-0 top-14 w-52 bg-white text-black shadow-md rounded-md z-50 overflow-hidden transform transition-all duration-300 ease-out ${
+          className={`absolute right-0 top-14 w-52 bg-white text-black shadow-md rounded-md z-[5000] overflow-hidden transform transition-all duration-300 ease-out ${
             isMobileOpen
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-4 pointer-events-none"
@@ -229,7 +249,7 @@ const Nav = () => {
               <button
                 type="button"
                 onClick={() => setProductOpen(!productOpen)}
-                className="flex items-center space-x-1 hover:text-orange-500 transition-colors"
+                className="flex items-center space-x-1 hover:text-orange-500 transition-colors w-full text-left"
               >
                 <span>Product</span>
                 <FaChevronDown className="text-sm" />
@@ -283,7 +303,7 @@ const Nav = () => {
               <button
                 type="button"
                 onClick={() => setConnectOpen(!connectOpen)}
-                className="flex items-center space-x-1 hover:text-orange-500 transition-colors"
+                className="flex items-center space-x-1 hover:text-orange-500 transition-colors w-full text-left"
               >
                 <span>Connect</span>
                 <FaChevronDown className="text-sm" />
@@ -345,7 +365,7 @@ const Nav = () => {
               <Link
                 to="/signup"
                 onClick={closeMobileMenu}
-                className="block bg-orange-500 text-white px-4 py-2 rounded-md transition-all hover:bg-orange-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                className="block bg-orange-700 text-white px-4 py-2 rounded-md transition-all hover:bg-orange-800 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"
               >
                 Sign Up
               </Link>

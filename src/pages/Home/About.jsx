@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import Info from "../../components/Info";
 import Socials from "../../components/Socials";
+import profile from "../../assets/logow.svg";
 
 // Dummy data for team members (replace image paths and text as needed)
 const teamMembers = [
@@ -149,7 +150,7 @@ const About = () => {
                     className="bg-gray-800 p-4 rounded-lg shadow-lg text-center"
                   >
                     <img
-                      src={member.image}
+                      src={profile}
                       alt={member.name}
                       className="h-24 w-24 rounded-full mx-auto mb-4 object-cover"
                     />
